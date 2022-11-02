@@ -35,6 +35,6 @@ RUN     chown -R 1001:0 /opt/app-root/src \
 
 USER 1001
 
-RUN python3 manage.py collectstatic --noinput
+CMD ["python3", "manage.py", "collectstatic", "--noinput"]
 
-CMD ["python3", "manage.py", "runserver","0.0.0.0:8000"]
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

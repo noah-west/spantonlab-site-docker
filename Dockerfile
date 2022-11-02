@@ -33,8 +33,8 @@ RUN pip3 install -r dependencies.txt
 RUN     chown -R 1001:0 /opt/app-root/src \
      && chmod -Rf ug=rwx /opt/app-root/src
 
-USER 1001
+RUN     python3 manage.py collectstatic --noinput
 
-CMD ["python3", "manage.py", "collectstatic", "--noinput"]
+USER 1001
 
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
